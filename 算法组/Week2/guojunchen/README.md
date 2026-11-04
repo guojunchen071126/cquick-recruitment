@@ -59,4 +59,6 @@
 
 ## 加分项：把阈值做成 ROS 2 参数
 我没有把 HSV 和面积的阈值写死在代码里，而是用 `declare_parameter` 把它们做成了 ROS 2 的参数。
-现在，我可以在终端里直接用 `--ros-args -p h_min:=0 -p h_max:=10` 这样的命令来实时调整阈值，不用每次都重新编译代码了。（运行截图我放在了 task3 文件夹里）。
+现在，我可以在终端里直接用 `--ros-args -p h_min:=0 -p h_max:=10` 这样的命令来实时调整阈值，不用每次都重新编译代码了。
+<img width="842" height="716" alt="222222222222222" src="https://github.com/user-attachments/assets/51c08ee5-145f-4060-aa3a-2ce2e041c258" />
+
