@@ -17,6 +17,13 @@
 *   **漏检**：比如样本图 3，如果图里根本没这个颜色，或者光线太暗，导致目标的颜色值低于我设置的 HSV 下限，程序就找不到它了。
 *   **误检**：如果背景里有和我要找的颜色特别像的东西（比如绿色的桌布），而且我面积阈值调得很小，背景就会被当成目标抓出来。
 
+<img width="2167" height="1474" alt="image" src="https://github.com/user-attachments/assets/b9cb914e-81c5-437f-813b-3a7713c5f162" />
+<img width="1894" height="1527" alt="image" src="https://github.com/user-attachments/assets/d9244f1d-fcc5-43b8-bff3-206d0dc4894d" />
+以下这张图片并没有检测出绿色（黄色系的湖人场馆图 也就是根本没有这个检测颜色）
+<img width="1747" height="1447" alt="image" src="https://github.com/user-attachments/assets/b156a5da-505f-4b41-a355-fb0bd660f9c7" />
+<img width="2538" height="1531" alt="image" src="https://github.com/user-attachments/assets/f1c65f3f-722d-45d2-8a66-caaa4d519071" />
+
+
 ---
 
 
@@ -30,6 +37,11 @@
 ### 2. 像素坐标和真实世界坐标的区别
 *   **像素坐标 (u, v)**：只是看图说话的二维坐标。以图片左上角为 (0,0)，单位是“像素”。而且换个清晰度不同的相机，或者图片缩放一下，像素坐标就变了，没法直接对应现实里的距离。
 *   **真实世界坐标 (X, Y, Z)**：这是三维的，带物理单位（比如米）。不仅有平面的 X 和 Y，还要有机器人高度或目标距离的 Z 轴。这两个坐标之间差了一个相机的内参、外参和深度信息。
+<img width="1752" height="1500" alt="image" src="https://github.com/user-attachments/assets/10ce771b-d642-40e4-946c-6cfee699f78c" />
+<img width="1764" height="1482" alt="image" src="https://github.com/user-attachments/assets/4a346e13-3c1e-4efa-877a-5012b13a8a72" />
+<img width="1747" height="1405" alt="image" src="https://github.com/user-attachments/assets/e17916ba-34de-4b71-a80c-c34a9dcacdcd" />
+
+
 
 ---
 
@@ -40,6 +52,8 @@
 
 ### 2. 为什么 u、v 不能直接当机器人的运动指令？（必答题）
 因为照片是平面的，`u, v` 缺少了**深度（Z轴）信息**。机器人不知道目标离它到底是 1 米还是 2 米，直接按像素走很容易撞到东西。另外，像素尺寸和现实的物理尺寸是不统一的。必须要把像素坐标配合深度数据，再用相机的内参和手眼标定矩阵，转换成机器人底座下的三维坐标 (X,Y,Z)，才能发给机械臂去抓。
+<img width="1395" height="1422" alt="image" src="https://github.com/user-attachments/assets/4c692fe7-2f79-4849-9425-8664041ca020" />
+
 
 ---
 
