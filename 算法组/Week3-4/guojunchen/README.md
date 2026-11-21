@@ -87,13 +87,12 @@ python src/live_localize.py                     # 左相机 / 右地图分屏
 > 相机索引因机器而异：本机 `SOURCE = 1`（0 是 DroidCam 占位、2 是全黑的内置摄像头）。Linux 下用 `v4l2-ctl --list-devices` 查编号，改 `SOURCE` 即可；没有相机时把 `SOURCE` 改成视频路径同样能跑。
 > 工具集：`python src/tools.py calib {record,capture,extract,calibrate,diag,focus}` 做标定、`data {extract,dataset,normalize,prelabel,flag,xml2txt}` 做数据、`map` 生成示意图。
 
-###第 3 步：ROS2
+### 第 3 步：ROS2
 ```bash
 source /opt/ros/humble/setup.bash
 source ~/ros2_ws/install/setup.bash
 ros2 launch vision_comm localize.launch.py \
      source:=/mnt/d/guojunchen_code/tmp/ros_demo.mp4 show_echo:=true
-```
 
 ros2 topic list
 ros2 topic echo /field_pose
