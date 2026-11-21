@@ -87,6 +87,18 @@ python src/live_localize.py                     # 左相机 / 右地图分屏
 > 相机索引因机器而异：本机 `SOURCE = 1`（0 是 DroidCam 占位、2 是全黑的内置摄像头）。Linux 下用 `v4l2-ctl --list-devices` 查编号，改 `SOURCE` 即可；没有相机时把 `SOURCE` 改成视频路径同样能跑。
 > 工具集：`python src/tools.py calib {record,capture,extract,calibrate,diag,focus}` 做标定、`data {extract,dataset,normalize,prelabel,flag,xml2txt}` 做数据、`map` 生成示意图。
 
+###第 3 步：ROS2
+```bash
+source /opt/ros/humble/setup.bash
+source ~/ros2_ws/install/setup.bash
+ros2 launch vision_comm localize.launch.py \
+     source:=/mnt/d/guojunchen_code/tmp/ros_demo.mp4 show_echo:=true
+```
+
+ros2 topic list
+ros2 topic echo /field_pose
+ros2 topic echo /target_position
+```
 ---
 
 ## 任务 1：足球检测
@@ -199,12 +211,15 @@ python src/live_localize.py                     # 左相机 / 右地图分屏
 包结构 `task2/ros2_ws/src/{vision_interfaces, vision_comm}`，写法沿用第 1–2 周（单类、`declare_parameter`、按面积排序、未检测到也发一条 `detected=False`）。
 
 ```bash
-cd task2/ros2_ws
-colcon build --packages-select vision_interfaces vision_comm
-source install/setup.bash
-ros2 run vision_comm localize        # /field_pose + /target_position（推荐单开）
-ros2 run vision_comm sub             # 另开终端看结果
-ros2 param set /localizer_publisher conf_ball 0.5
+source /opt/ros/humble/setup.bash
+source ~/ros2_ws/install/setup.bash
+ros2 launch vision_comm localize.launch.py \
+     source:=/mnt/d/guojunchen_code/tmp/ros_demo.mp4 show_echo:=true
+
+
+ros2 topic list
+ros2 topic echo /field_pose
+ros2 topic echo /target_position
 ```
 
 | 节点 | 参数（默认值） |
