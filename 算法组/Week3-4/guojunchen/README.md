@@ -281,7 +281,6 @@ average rate: 3.947
 | ONNX 导出与对比（+3） | ✅ | test 100 张：pt-GPU 9.34 ms / 107 FPS、pt-CPU 49.83 ms、onnx-CPU 55.62 ms（本机 onnxruntime 为 CPU 版，价值在部署） |
 | 稳健位姿（多假设 + 时序）（+2） | ✅ | 40 帧：单次最近邻 ok 1–2 帧 → 多假设 25 帧 → 时序 27 帧；关掉 `INIT_SIDE` 时如实报 `ambiguous` |
 | ROS2 节点 + launch（+2） | ✅ | 见「ROS2 接口」，WSL 实编译并跑通 |
-| TensorRT（+3） | ❌ | 本机无 TensorRT 环境 |
 
 ---
 
@@ -292,16 +291,6 @@ average rate: 3.947
 3. **相机能打开但读不到帧**：同一台 USB 相机用 MSMF 打开会返回近全黑帧（亮度 0–9），改用“MSMF 与默认后端各试一次、取亮度 >20 的那路”后正常。
 
 ---
-
-## 局限与下一步
-
-- 官方 `field.yaml` 未拿到：拿到后只需替换 `task2/config/field.yaml` 并同步 `field_map.json` 的 `px_per_m` / `origin_px`，代码不动。
-- 场地 180° 对称：单帧无法消歧，默认“人站球门对面”，反了按 `f`。
-- 3 个测试点是**重复性**而非卷尺绝对精度，现场可用 `live_localize.py` 直接读数复核。
-- 远处小球（<40 px）仍会漏检；TensorRT 与更大输入尺寸是下一步。
-
----
-
 ## 附：仓库内容
 
 ```
