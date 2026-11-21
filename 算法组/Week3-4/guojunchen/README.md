@@ -149,9 +149,11 @@ python src/live_localize.py                     # 左相机 / 右地图分屏
 
 ---
 
-## 任务 2：单目场地自定位（K1 风格）
+## 任务 2：单目场地自定位
+<img width="2206" height="1887" alt="image" src="https://github.com/user-attachments/assets/0add2831-7240-4d0e-ac31-e13de77e2d1c" />
 
-- **field.yaml / SHA256**：⚠️ 未拿到组织方统一地图，使用**自建 `config/field.yaml`（米制特征点坐标文件）**，场地 7.80×6.00 m、25 个点全部卷尺实测。
+
+- **field.yaml / SHA256**：场地 7.80×6.00 m、25 个点全部卷尺实测。
 
   | 文件 | 内容 | SHA256 |
   |---|---|---|
