@@ -77,9 +77,9 @@ ls ~/.local/lib/python3*/site-packages 2>/dev/null | head
 > `/usr/lib/python3` 或 `~/.local/lib/python3`，和 apt 管理的 ROS2（`rclpy`）、numpy 版本打架，
 > 而且卸载不干净。本项目所有依赖都只在 venv 内，系统 Python 保持原样。
 
-### 第 0 步：放权重（只做一次）
+### 第 0 步：放权重
 
-仓库里**没有** `.pt` 文件（按细则权重放共享盘）。从网盘下载后放到固定路径：
+模型放在了百度网盘 下载后要放在指定位置：
 
 ```text
 网盘：https://pan.baidu.com/s/1UhbZ_PyChPVQwycBPv7Qaw?pwd=5408    提取码 5408（永久有效）
