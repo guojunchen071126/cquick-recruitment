@@ -86,9 +86,7 @@ ls ~/.local/lib/python3*/site-packages 2>/dev/null | head
   task1_best.pt        ->  <仓库>/task1/weights/best.pt
   task2_marker_best.pt ->  <仓库>/task2/weights/marker_best.pt
 ```
-
-`task1/weights/` 与 `task2/weights/` 两个目录里各有一份 `放置说明.txt`，内容同上。
-没放权重就运行脚本，程序会直接提示去网盘下载（不会报难懂的堆栈）。
+模型放在了百度网盘 下载后要放在指定位置
 
 ### 第 1 步：跑任务 1（足球检测）
 
